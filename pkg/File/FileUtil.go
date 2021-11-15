@@ -4,7 +4,7 @@ package File
 
 import "os"
 
-func getFile(filePath string) (string, error) {
+func GetFile(filePath string) (string, error) {
 	var err error
 	res := filePath
 
