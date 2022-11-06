@@ -4,9 +4,10 @@ import (
 	"cloud.google.com/go/storage"
 	"context"
 	"github.com/pkg/errors"
+	"io"
 )
 
-func Get(ctx context.Context, bucketName, objectPath string) (*storage.Reader, error) {
+func GetReader(ctx context.Context, bucketName, objectPath string) (*storage.Reader, error) {
 	client, err := storage.NewClient(ctx)
 	if err != nil {
 		return nil, errors.WithStack(err)
@@ -17,7 +18,22 @@ func Get(ctx context.Context, bucketName, objectPath string) (*storage.Reader, e
 	if err != nil {
 		return nil, errors.WithStack(err)
 	}
-	defer reader.Close()
 
 	return reader, nil
+}
+
+func GetByteSlice(ctx context.Context, bucketName, objectPath string) ([]byte, error) {
+	r, err := GetReader(ctx, bucketName, objectPath)
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := io.ReadAll(r)
+	if err != nil {
+		return nil, errors.WithStack(err)
+	}
+
+	defer r.Close()
+
+	return res, nil
 }
