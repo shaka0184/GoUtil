@@ -1,6 +1,6 @@
-// Package File
-// File ファイル関係の処理
-package File
+// Package file
+// file ファイル関係の処理
+package file
 
 import "os"
 

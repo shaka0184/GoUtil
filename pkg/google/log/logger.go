@@ -1,4 +1,4 @@
-package Log
+package log
 
 import (
 	"cloud.google.com/go/logging"
