@@ -13,8 +13,11 @@ import (
 	"os"
 )
 
-func GetClient(ctx context.Context, credentials, bn string) (*http.Client, error) {
-	b, err := ufile.GetLocalOrGcsFile(ctx, credentials, bn)
+func GetClient(ctx context.Context, credentials string) (*http.Client, error) {
+	b, err := os.ReadFile("credentials.json")
+	if err != nil {
+		return nil, err
+	}
 
 	// If modifying these scopes, delete your previously saved token.json.
 	config, err := google.ConfigFromJSON(b, gmail.MailGoogleComScope)
