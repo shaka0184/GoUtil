@@ -1,1 +1,1 @@
-# GoUtil
+# go-util
