@@ -1,4 +1,4 @@
-module github.com/shaka0184/GoUtil
+module github.com/shaka0184/go-util
 
 go 1.18
 
