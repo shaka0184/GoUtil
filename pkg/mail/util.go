@@ -2,6 +2,7 @@ package mail
 
 import (
 	"fmt"
+	"github.com/pkg/errors"
 	"net/smtp"
 	"os"
 	"strconv"
@@ -34,7 +35,7 @@ func SendMail(m Mail) error {
 	auth := smtp.CRAMMD5Auth(username, password)
 	msg := []byte(strings.ReplaceAll(fmt.Sprintf("To: %s\nSubject: %s\n\n%s", strings.Join(m.Recipients, ","), m.Subject, m.Body), "\n", "\r\n"))
 	if err := smtp.SendMail(fmt.Sprintf("%s:%d", hostname, port), auth, from, m.Recipients, msg); err != nil {
-		return err
+		return errors.WithStack(err)
 	}
 
 	return nil

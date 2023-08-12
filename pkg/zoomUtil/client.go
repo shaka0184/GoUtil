@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"github.com/pkg/errors"
-	httpUtil "github.com/shaka0184/GoUtil/pkg/http"
+	httpUtil "github.com/shaka0184/go-util/pkg/http"
 	"net/http"
 	"os"
 )

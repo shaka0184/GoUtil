@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/pkg/errors"
-	ufile "github.com/shaka0184/GoUtil/pkg/file"
+	ufile "github.com/shaka0184/go-util/pkg/File"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/gmail/v1"
