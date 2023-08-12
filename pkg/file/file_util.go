@@ -5,7 +5,7 @@ package file
 import (
 	"context"
 	"github.com/pkg/errors"
-	"github.com/shaka0184/GoUtil/pkg/google/storage"
+	"github.com/shaka0184/go-util/pkg/google/storage"
 	"os"
 	"path/filepath"
 )

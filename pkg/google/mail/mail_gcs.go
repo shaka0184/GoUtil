@@ -5,7 +5,7 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/pkg/errors"
-	"github.com/shaka0184/GoUtil/pkg/google/storage"
+	"github.com/shaka0184/go-util/pkg/google/storage"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/gmail/v1"
